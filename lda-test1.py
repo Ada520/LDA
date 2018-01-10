@@ -6,18 +6,7 @@ __author__ = 'pi'
 __mtime__ = '12/26/2014-026'
 # code is far away from bugs with the god animal protecting
     I love animals. They taste delicious.
-              ┏┓      ┏┓
-            ┏┛┻━━━┛┻┓
-            ┃      ☃      ┃
-            ┃  ┳┛  ┗┳  ┃
-            ┃      ┻      ┃
-            ┗━┓      ┏━┛
-                ┃      ┗━━━┓
-                ┃  神兽保佑    ┣┓
-                ┃　永无BUG！   ┏┛
-                ┗┓┓┏━┳┓┏┛
-                  ┃┫┫  ┃┫┫
-                  ┗┻┛  ┗┻┛
+
 """
 
 from collections import defaultdict
@@ -94,7 +83,7 @@ def preprocess_texts(texts, test_doc_id=1):
     texts = [[english_stemmer.stem(w) for w in t if
               not set(w) & set('@+>0123456789*') and w not in stopwords and len(w) >= MIN_WORD_LEN] for t in
              texts]  # set('+-.?!()>@0123456789*/')
-    print ('texts[%d] delete ^alphanum & stopwords & len<%d & stemmed: #' % (test_doc_id, MIN_WORD_LEN),len(texts[test_doc_id]), '\n', texts[test_doc_id])
+    #print ('texts[%d] delete ^alphanum & stopwords & len<%d & stemmed: #' % (test_doc_id, MIN_WORD_LEN),len(texts[test_doc_id]), '\n', texts[test_doc_id])
 
     return texts
 
@@ -235,7 +224,6 @@ def test():
     test_doc_id = 1
 
     texts = preprocess_texts(texts, test_doc_id=test_doc_id)
-    print(1)
     corpus = build_corpus(texts=texts)  # corpus DirectTextCorpus(corpora.TextCorpus)
     dict = build_id2word(corpus)
     save_corpus_dict(dict, corpus)
