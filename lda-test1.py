@@ -224,8 +224,10 @@ def test():
     test_doc_id = 1
 
     texts = preprocess_texts(texts, test_doc_id=test_doc_id)
+    # print len(texts),texts[0]
     corpus = build_corpus(texts=texts)  # corpus DirectTextCorpus(corpora.TextCorpus)
     dict = build_id2word(corpus)
+    print dict
     save_corpus_dict(dict, corpus)
     #dict, corpus = load_corpus_dict()
     # print(len(corpus))
@@ -243,4 +245,4 @@ def test():
 
 if __name__ == '__main__':
     test()
-    test_num_topics()
+    #test_num_topics()

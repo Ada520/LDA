@@ -1,3 +1,4 @@
+# -*- encoding:utf-8 -*-
 '''
 1. 引言¶
 
@@ -61,12 +62,8 @@ sample_text={
 }
 
 from collections import Counter
-for desc,text in sample_text.items():
-    print (desc)
-    print (Counter(text).most_common())
 
 def find_topic(texts,topic_model,n_topics,vec_model='tf',thr=0.02,**kwargs):
-    '''
     """Return a list of topics from texts by topic models - for demostration of simple data
     texts: array-like strings
     topic_model: {"nmf", "svd", "lda", "kmeans"} for LSA_NMF, LSA_SVD, LDA, KMEANS (not actually a topic model)
@@ -74,18 +71,13 @@ def find_topic(texts,topic_model,n_topics,vec_model='tf',thr=0.02,**kwargs):
     vec_model: {"tf", "tfidf"} for term_freq, term_freq_inverse_doc_freq
     thr: threshold for finding keywords in a topic model
     """
-    :param texts:
-    :param topic_model:
-    :param n_topics:
-    :param vec_model:
-    :param thr:
-    :param kwargs:
-    :return:
-    '''
+
     #1. vectorization
     vectorizer=CountVectorizer() if vec_model=="tf" else TfidfVectorizer
     text_vec=vectorizer.fit_transform(texts)
+    #print text_vec#这是一个矩阵，每一行代表一个文本，每一列代表一个词对应的序号，值为出现的次数
     words=np.array(vectorizer.get_feature_names())
+    #print words
     #2.topic finding
     topic_models={"nmf":NMF,"svd":TruncatedSVD,"lda":LatentDirichletAllocation,"kmeans":KMeans}
     topicfinder=topic_models[topic_model](n_topics,**kwargs).fit(text_vec)

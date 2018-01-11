@@ -135,7 +135,7 @@ class LDAModel(object):
         u=random.uniform(0,self.p[self.K-1])
         for topic in xrange(self.K):
             if self.p[topic]>u:
-                print('Break!')
+                #print('Break!')
                 break
         self.nw[word][topic]+=1
         self.nwsum[topic]+=1
