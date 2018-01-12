@@ -23,5 +23,7 @@ python-lda主要是针对lda接口的调用，简单测试
 
 ## 其他
 [《机器学习系统设计》之利用sklearn做文本分类上](http://blog.csdn.net/solomon1558/article/details/47452387)
+
 [《机器学习系统设计》之利用sklearn做文本分类下](http://blog.csdn.net/solomon1558/article/details/47682039)
+
 [LDA的python实现](http://blog.csdn.net/yan456jie/article/details/52073723)
